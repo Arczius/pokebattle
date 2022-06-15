@@ -10,7 +10,6 @@ class pokemon{
     attacksDamage:Array<number>;
     weakness:string;
     weaknessAmount:number;
-
     resistance:string;
     resistanceAmount:number;
 
