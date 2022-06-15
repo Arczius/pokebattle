@@ -49,6 +49,9 @@ class pokemon{
 }
 
 
-var pikachu = new pokemon('Platypus','Lightning',60, ["Electric Ring", "Pika Punch"], [50, 20], "Fire", 1.5, "Fighting", 20)
+var pikachu = new pokemon('Platypus','Lightning',60, ["Electric Ring", "Pika Punch"], [50, 20], "Fire", 1.5, "Fighting", 20);
+
+var charmeleon = new pokemon('Coru', 'Fire', 60, ["Head Butt", "Flare"], [10, 30], "Water", 2, "Lightning", 10);
 
 console.log(pikachu);
+console.log(charmeleon);
