@@ -23,7 +23,7 @@ export default class pokemonGenerator {
 
 
     public getPopulation(pokemonList:Array<any>){
-        var alivePokemon:number = 0; 
+        let alivePokemon:number = 0; 
 
         pokemonList.forEach(function(pokemon){
             if(pokemon.hitpoints > 0){
@@ -34,7 +34,7 @@ export default class pokemonGenerator {
     }
 
     public getPopulationHealth(pokemonList:Array<any>){
-        var totalhp:number = 0;
+        let totalhp:number = 0;
 
         pokemonList.forEach(function(pokemon){
             if(pokemon.hitpoints > 0){
