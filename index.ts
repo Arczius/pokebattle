@@ -1,6 +1,5 @@
 "use strict";
 
-import fight from "./Functions/fight.ts";
 import pokemonGenerator from './Classes/pokemonGenerator.ts';
 
 
@@ -12,6 +11,4 @@ const pikachu = pokemon.newPokemon('Platypus (Pikachu)','Lightning',60, ["Electr
 const charmeleon = pokemon.newPokemon('Coru (Charmeleon)', 'Fire', 60, ["Head Butt", "Flare"], ["Normal", "Fire"], [10, 30], "Water", 2, "Lightning", 10);
 
 
-console.log(pokemon.getPopulation([pikachu,charmeleon]));
-
-//fight(pikachu,charmeleon);
+pokemon.fight(pikachu,charmeleon);
