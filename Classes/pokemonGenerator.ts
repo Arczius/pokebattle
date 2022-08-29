@@ -44,4 +44,25 @@ export default class pokemonGenerator {
 
         return totalhp / pokemonList.length;
     }
+
+    public fight(pokemon1:any, pokemon2:any){
+
+    }
+
+    private attack(attackDamage:number, attackEnergyType:string, toPokemonRecistance:string, toPokemonWeakness:string, toPokemonWeaknessModifier:number, toPokemonRecistanceModifier:number){
+        let damageAmount:number;
+
+        if(attackEnergyType === toPokemonWeakness){
+            damageAmount = attackDamage * toPokemonWeaknessModifier;
+        }
+    
+        else if(attackEnergyType === toPokemonRecistance){
+            damageAmount = attackDamage / toPokemonRecistanceModifier;
+        }
+        else{
+            damageAmount = attackDamage;
+        }
+
+        return damageAmount;
+    }
 }
