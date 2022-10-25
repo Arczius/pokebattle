@@ -4,8 +4,8 @@ import Name from './Name.ts';
 
 export default class Nickname extends Name{
     constructor(
-        private Name:string,
-        private Nickname:string,
+        Name:string,
+        protected Nickname:string,
     ) {
         super(Name);
         this.Nickname = Nickname;

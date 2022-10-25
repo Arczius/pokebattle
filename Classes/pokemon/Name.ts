@@ -3,7 +3,7 @@
 export default class Name {
 
     constructor(
-        private Name:string,
+        protected Name:string,
     ){
         this.Name = Name;
     }
