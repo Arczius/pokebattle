@@ -1,12 +1,9 @@
 "use strict"
 
 
-interface AttackInterface{
-    Name:string;
-    Damage:number;
-}
 
 import Health from "./Health.ts";
+import { AttackInterface } from "../../interfaces/AllInterfaces.ts";
 
 export default class Attack extends Health {
 
