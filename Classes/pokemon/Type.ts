@@ -4,7 +4,7 @@ import Nickname from "./Nickname.ts";
 
 export default class Type extends Nickname {
 
-    constructor(
+    public constructor(
         Name:string,
         Nickname:string,
         protected Type:string,

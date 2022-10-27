@@ -5,7 +5,7 @@ import Hitpoints from "./Hitpoints.ts";
 export default class Health extends Hitpoints{
     protected Health;
 
-    constructor(
+    public constructor(
         Name:string,
         Nickname:string,
         Type:string,

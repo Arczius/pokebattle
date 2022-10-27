@@ -4,7 +4,7 @@ import Type from "./Type.ts";
 
 export default class Hitpoints extends Type{
 
-    constructor(
+    public constructor(
         Name:string,
         Nickname:string,
         Type:string,
