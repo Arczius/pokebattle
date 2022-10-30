@@ -33,7 +33,7 @@ export default class Attack extends Health {
         return this.Attack;
     }
 
-    protected changeAttack(index:number, value:AttackInterface){
+    public changeAttack(index:number, value:AttackInterface){
         if(this.Attack[index] !== null){
             this.Attack[index] = value;
         }

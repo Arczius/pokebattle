@@ -18,7 +18,7 @@ export default class Hitpoints extends Type{
         return this.Hitpoints;
     }
 
-    protected setHitpoints(Hitpoints:number){
+    public setHitpoints(Hitpoints:number){
         this.Hitpoints = Hitpoints;
     }
 }

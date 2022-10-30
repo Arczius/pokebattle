@@ -8,7 +8,7 @@ export default class Name {
         this.Name = Name;
     }
 
-    protected setName(Name:string){
+    public setName(Name:string){
         this.Name = Name;
     }
 

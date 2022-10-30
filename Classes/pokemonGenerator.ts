@@ -1,95 +1,78 @@
 "use strict";
 
-import makePokemon from "./makePokemon.ts";
+import Pokemon from "./Pokemon.ts";
+import { AttackInterface, WeaknessInterface, ResistanceInterface } from "../interfaces/AllInterfaces.ts";
 
 export default class pokemonGenerator {
+    private AlivePokemon:number = 0;
 
     public newPokemon(
-        name:string, 
-        energyType:string, 
-        maxHealth:number, 
-        attacksName:Array<string>, 
-        attacksEnergyType:Array<string>,
-        attacksDamage:Array<number>,
-        weakness:string,
-        weaknessAmount:number,
-        resistance:string,
-        resistanceAmount:number
-        ){
-
-
-        return new makePokemon(name,energyType,maxHealth,attacksName,attacksEnergyType,attacksDamage,weakness,weaknessAmount,resistance,resistanceAmount);
+        Name:string,
+        Nickname:string,
+        Type:string,
+        Hitpoints:number,
+        Attack:Array<AttackInterface>,
+        Weakness:WeaknessInterface,
+        Resistance:ResistanceInterface,
+    ){
+        this.AlivePokemon++;
+        return new Pokemon(Name,Nickname,Type,Hitpoints,Attack,Weakness,Resistance);
     }
 
 
-    public getPopulation(pokemonList:Array<any>){
-        let alivePokemon:number = 0; 
-
-        pokemonList.forEach(function(pokemon){
-            if(pokemon.hitpoints > 0){
-                alivePokemon++;
-            }
-        });
-        return alivePokemon;
+    public getPopulation(){
+        return this.AlivePokemon;
     }
 
-    public getPopulationHealth(pokemonList:Array<any>){
-        let totalhp:number = 0;
-
-        pokemonList.forEach(function(pokemon){
-            if(pokemon.hitpoints > 0){
-                totalhp + pokemon.hitpoints;
-            }
-        })
-
-        return totalhp / pokemonList.length;
-    }
-
-    public fight(pokemon1:any, pokemon2:any){
-        console.log(pokemon1.name + " has " + pokemon1.hitpoints + "hp");
-        console.log(pokemon2.name + " has " + pokemon2.hitpoints + "hp");
+    public fight(pokemon1:Pokemon, pokemon2:Pokemon){
+        console.log(pokemon1.getNickname() + `(${pokemon1.getName()})` + " has " + pokemon1.getHitpoints() + "HP");
+        console.log(pokemon2.getNickname() + `(${pokemon2.getName()})` + " has " + pokemon2.getHitpoints() + "HP");
 
 
-        console.log("doing " + pokemon1.attacksName[0]);
+        console.log(pokemon1.getNickname() + `(${pokemon1.getName()})` +" does " + pokemon1.getSingleAttack(0).Name);
 
-        const attack1 = this.attackCalculator(pokemon1.attacksDamage[0], pokemon1.attacksEnergyType[0], pokemon2.resistance, pokemon2.weakness, pokemon2.weaknessAmount, pokemon2.resistanceAmount);
-        this.doAttack(pokemon2,attack1);
+        const attack1 = this.attackCalculator(pokemon1.getSingleAttack(0), pokemon1.getType(), pokemon2.getResistance(), pokemon2.getWeakness())
+        this.doAttack(pokemon2, attack1);
 
-        console.log(pokemon1.name + " has " + pokemon1.hitpoints + "hp");
-        console.log(pokemon2.name + " has " + pokemon2.hitpoints + "hp");
+        console.log(pokemon1.getNickname() + `(${pokemon1.getName()})` + " has " + pokemon1.getHitpoints() + "HP");
+        console.log(pokemon2.getNickname() + `(${pokemon2.getName()})` + " has " + pokemon2.getHitpoints() + "HP");
 
-        console.log("doing " + pokemon2.attacksName[1])
+        // console.log("doing " + pokemon2.attacksName[1])
 
-        const attack2 = this.attackCalculator(pokemon2.attacksDamage[1], pokemon2.attacksEnergyType[1], pokemon1.resistance, pokemon1.weakness, pokemon1.weaknessAmount, pokemon1.resistanceAmount);
+        console.log(pokemon2.getNickname() + `(${pokemon2.getName()})` +" does " + pokemon2.getSingleAttack(0).Name);
+
+        // const attack2 = this.attackCalculator(pokemon2.attacksDamage[1], pokemon2.attacksEnergyType[1], pokemon1.resistance, pokemon1.weakness, pokemon1.weaknessAmount, pokemon1.resistanceAmount);
+        const attack2 = this.attackCalculator(pokemon2.getSingleAttack(1), pokemon2.getType(), pokemon1.getResistance(), pokemon1.getWeakness())
         this.doAttack(pokemon1,attack2);
 
-        console.log(pokemon1.name + " has " + pokemon1.hitpoints + "hp");
-        console.log(pokemon2.name + " has " + pokemon2.hitpoints + "hp");
+        console.log(pokemon1.getNickname() + `(${pokemon1.getName()})` + " has " + pokemon1.getHitpoints() + "HP");
+        console.log(pokemon2.getNickname() + `(${pokemon2.getName()})` + " has " + pokemon2.getHitpoints() + "HP");
     }
 
-    private doAttack(toPokemon:any, amount:number){
-        if(toPokemon.hitpoints - amount < 0){
-            toPokemon.hitpoints = 0;
+    private doAttack(toPokemon:Pokemon, amount:number){
+        if(toPokemon.getHitpoints() - amount <= 0){
+            this.AlivePokemon--;
+            toPokemon.setHitpoints(0);
         }
         else{
-            toPokemon.hitpoints = toPokemon.hitpoints - amount;
+            toPokemon.setHitpoints(toPokemon.getHitpoints() - amount); 
         }
     }
 
-    private attackCalculator(attackDamage:number, attackEnergyType:string, toPokemonRecistance:string, toPokemonWeakness:string, toPokemonWeaknessModifier:number, toPokemonRecistanceModifier:number){
-        let damageAmount:number;
-
-        if(attackEnergyType === toPokemonWeakness){
-            damageAmount = attackDamage * toPokemonWeaknessModifier;
+    private attackCalculator(
+            Attack:AttackInterface, 
+            fromPokemonType:string,
+            toPokemonRecistance:ResistanceInterface, 
+            toPokemonWeakness:WeaknessInterface
+        ){
+        if(fromPokemonType === toPokemonWeakness.EnergyType) {
+            return Attack.Damage * toPokemonWeakness.Multiplier; 
         }
-    
-        else if(attackEnergyType === toPokemonRecistance){
-            damageAmount = attackDamage / toPokemonRecistanceModifier;
+        else if(fromPokemonType === toPokemonRecistance.EnergyType){
+            return Attack.Damage / toPokemonRecistance.Multiplier;
         }
         else{
-            damageAmount = attackDamage;
-        }
-
-        return damageAmount;
+            return Attack.Damage;
+        }   
     }
 }

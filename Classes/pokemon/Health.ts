@@ -19,7 +19,7 @@ export default class Health extends Hitpoints{
         return this.Health;
     }
 
-    protected setHealth(Health:number){
+    public setHealth(Health:number){
         this.Health = Health;    
     }
 }

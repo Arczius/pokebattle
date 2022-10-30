@@ -21,7 +21,7 @@ export default class Weakness extends Attack {
         return this.Weakness;
     }
 
-    protected setWeaknesss(value:WeaknessInterface)  {
+    public setWeaknesss(value:WeaknessInterface)  {
         this.Weakness = value;
     }
 }

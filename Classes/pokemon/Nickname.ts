@@ -11,7 +11,7 @@ export default class Nickname extends Name{
         this.Nickname = Nickname;
     }
 
-    protected setNickname(Nickname:string){
+    public setNickname(Nickname:string){
         this.Nickname = Nickname;
     }
 

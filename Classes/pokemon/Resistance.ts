@@ -24,7 +24,7 @@ export default class Recistance extends Weakness{
         return this.Resistance;
     }
 
-    protected setResistance(value:ResistanceInterface){
+    public setResistance(value:ResistanceInterface){
         this.Resistance = value;
     }
 }

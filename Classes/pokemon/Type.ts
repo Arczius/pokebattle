@@ -13,7 +13,7 @@ export default class Type extends Nickname {
         this.Type = Type;
     }
 
-    protected setType(Type:string){
+    public setType(Type:string){
         this.Type = Type;
     }
 

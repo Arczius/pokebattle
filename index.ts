@@ -3,12 +3,48 @@
 import pokemonGenerator from './Classes/pokemonGenerator.ts';
 
 
-const pokemon = new pokemonGenerator();
+const pokemonGen = new pokemonGenerator();
 
 
-const pikachu = pokemon.newPokemon('Platypus (Pikachu)','Lightning',60, ["Electric Ring", "Pika Punch"],["Lightning", "Electric"] ,[50, 20], "Fire", 1.5, "Fighting", 20);
+const Pikachu = pokemonGen.newPokemon(
+    "Pikachu", 
+    "Appelkoekje", 
+    "Lightning", 
+    60, 
+    [
+        { Name: "Electric Ring", Damage: 50 },
+        { Name: "Pika Punch", Damage: 20 },
+    ],
+    {
+        EnergyType: "Fire",
+        Multiplier: 1.5,
+    },
+    {
+        EnergyType: "Fighting",
+        Multiplier: 20,
+    }
+);
 
-const charmeleon = pokemon.newPokemon('Coru (Charmeleon)', 'Fire', 60, ["Head Butt", "Flare"], ["Normal", "Fire"], [10, 30], "Water", 2, "Lightning", 10);
+
+const Charmeleon = pokemonGen.newPokemon(
+    "Charmeleon", 
+    "Opa Wouter", 
+    "Fire", 
+    60,
+    [
+        { Name: "Head Butt", Damage: 10 },
+        { Name: "Flare", Damage: 30 },
+    ],
+    {
+        EnergyType: "Water",
+        Multiplier: 2,
+    },
+    {
+        EnergyType: "Fighting",
+        Multiplier: 10,
+    }
+);
 
 
-pokemon.fight(pikachu,charmeleon);
+
+pokemonGen.fight(Pikachu, Charmeleon);

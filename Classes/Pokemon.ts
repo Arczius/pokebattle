@@ -4,6 +4,7 @@ import Recistance from "./pokemon/Resistance.ts";
 import { WeaknessInterface, AttackInterface, ResistanceInterface } from "../interfaces/AllInterfaces.ts";
 
 export default class Pokemon extends Recistance{
+
     constructor(
         Name:string,
         Nickname:string,
