@@ -4,7 +4,11 @@ import Pokemon from "./Pokemon.ts";
 import { AttackInterface, WeaknessInterface, ResistanceInterface } from "../interfaces/AllInterfaces.ts";
 
 export default class pokemonGenerator {
-    private AlivePokemon:number = 0;
+    private AlivePokemon:number;
+
+    public constructor(){
+        this.AlivePokemon = 0;
+    }
 
     public newPokemon(
         Name:string,
