@@ -48,3 +48,13 @@ const Charmeleon = pokemonGen.newPokemon(
 
 
 pokemonGen.fight(Pikachu, Charmeleon);
+
+console.log("er zijn nu " + pokemonGen.getPopulation() + " pokemon in leven");
+
+console.log(`${Charmeleon.getNickname()}(${Charmeleon.getName()}) wordt nu vermoord`);
+
+Charmeleon.setHitpoints(0);
+
+pokemonGen.setAlivePokemon(1);
+
+console.log("er zijn nu " + pokemonGen.getPopulation() + " pokemon in leven");

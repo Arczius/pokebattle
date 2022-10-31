@@ -10,6 +10,9 @@ export default class pokemonGenerator {
         this.AlivePokemon = 0;
     }
 
+    public setAlivePokemon(Amount:number){
+        this.AlivePokemon = Amount;
+    }
     public newPokemon(
         Name:string,
         Nickname:string,
