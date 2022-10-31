@@ -2,9 +2,7 @@
 
 import pokemonGenerator from './Classes/pokemonGenerator.ts';
 
-
 const pokemonGen = new pokemonGenerator();
-
 
 const Pikachu = pokemonGen.newPokemon(
     "Pikachu", 
@@ -44,7 +42,6 @@ const Charmeleon = pokemonGen.newPokemon(
         Multiplier: 10,
     }
 );
-
 
 
 pokemonGen.fight(Pikachu, Charmeleon);
