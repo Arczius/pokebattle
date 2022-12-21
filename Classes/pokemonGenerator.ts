@@ -2,6 +2,8 @@
 
 import Pokemon from "./Pokemon.ts";
 import { AttackInterface, WeaknessInterface, ResistanceInterface } from "../interfaces/AllInterfaces.ts";
+import Charmeleon from "./Charmeleon.ts";
+import Pikachu from "./Pikachu.ts";
 
 export default class pokemonGenerator {
     private AlivePokemon:number;
@@ -13,7 +15,8 @@ export default class pokemonGenerator {
     public setAlivePokemon(Amount:number){
         this.AlivePokemon = Amount;
     }
-    public newPokemon(
+
+    private newPokemon(
         Name:string,
         Nickname:string,
         Type:string,
@@ -24,6 +27,16 @@ export default class pokemonGenerator {
     ){
         this.AlivePokemon++;
         return new Pokemon(Name,Nickname,Type,Hitpoints,Attack,Weakness,Resistance);
+    }
+
+    public newCharmeleon(Nickname:string){
+        this.AlivePokemon++;
+        return new Charmeleon(Nickname);
+    }
+
+    public newPikachu(Nickname:string){
+        this.AlivePokemon++;
+        return new Pikachu(Nickname);
     }
 
 
