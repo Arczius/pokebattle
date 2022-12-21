@@ -4,8 +4,16 @@ import Pokemon from "./Pokemon.ts";
 import { WeaknessInterface, AttackInterface, ResistanceInterface } from "../interfaces/AllInterfaces.ts";
 
 
+/**
+ * class representing a Charmeleon
+ * @extends Pokemon
+ */
 export default class Charmeleon extends Pokemon {
 
+    /**
+     * 
+     * @param Nickname - the nickname of this Charmeleon
+     */
     constructor(
         Nickname:string,
     ){

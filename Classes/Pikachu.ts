@@ -4,6 +4,10 @@ import Pokemon from "./Pokemon.ts";
 import { WeaknessInterface, AttackInterface, ResistanceInterface } from "../interfaces/AllInterfaces.ts";
 
 
+/**
+ * class representing a Pikachu
+ * @extends Pokemon
+ */
 export default class Pikachu extends Pokemon {
 
     constructor(
