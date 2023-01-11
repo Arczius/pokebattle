@@ -12,7 +12,7 @@ export default class Charmeleon extends Pokemon {
 
     /**
      * 
-     * @param Nickname - the nickname of this Charmeleon
+     * @param Nickname - the nickname of the Charmeleon
      */
     constructor(
         Nickname:string,

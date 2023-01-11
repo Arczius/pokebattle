@@ -10,6 +10,10 @@ import { WeaknessInterface, AttackInterface, ResistanceInterface } from "../inte
  */
 export default class Pikachu extends Pokemon {
 
+    /**
+     * 
+     * @param Nickname - the nickname of the Pikachu
+     */
     constructor(
         Nickname:string,
     ){
